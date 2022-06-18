@@ -5,8 +5,4 @@ class Url {
   //Base URLs
   static const String movieDbBaseUrl = 'https://api.pexels.com/v1/';
 
-
-
-
-
 }
