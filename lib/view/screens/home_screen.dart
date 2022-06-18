@@ -109,5 +109,4 @@ class _HomeScreenState extends State<HomeScreen> {
     pagingController.dispose();
     super.dispose();
   }
-
 }
