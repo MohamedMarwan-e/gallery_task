@@ -23,6 +23,7 @@ class _SearchScreenState extends State<SearchScreen>  {
   bool servicesLoader = false;
   SearchModel? searchModel;
 
+
   Future<void> servicesFuture({String? searchKeyword, int? perPage, int? pageKey}) async {
     servicesLoader = true;
     try {
@@ -154,7 +155,7 @@ class _SearchScreenState extends State<SearchScreen>  {
           shrinkWrap: true,
           builderDelegate: PagedChildBuilderDelegate<Photo>(
               noItemsFoundIndicatorBuilder: (context) => const Center(child: Text('No Item Found')),
-              firstPageProgressIndicatorBuilder: (_) => const Center(child: CircularProgressIndicator()),
+              firstPageProgressIndicatorBuilder: (_) => const SizedBox.shrink(),
               itemBuilder: (context, item, index) => SizedBox(
                 width: media.width ,
                 child: InkWell(
@@ -175,6 +176,10 @@ class _SearchScreenState extends State<SearchScreen>  {
     );
   }
 
-
+  @override
+  void dispose() {
+    pagingController.dispose();
+    super.dispose();
+  }
 }
 

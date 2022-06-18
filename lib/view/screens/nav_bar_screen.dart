@@ -78,7 +78,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
     }
 
     return  WillPopScope(
-      onWillPop:() => displayLogoutDialog(context,"",""),
+      onWillPop:() => displayLogoutDialog(context,"Close the application",""),
       child: Scaffold(
           body: _widgetOption.elementAt(ref.selectedIndex),
           bottomNavigationBar:Container(

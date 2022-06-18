@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gallery_task/controller/home_provider.dart';
+import 'package:gallery_task/core/helper/colors.dart';
 import 'package:gallery_task/data/models/image_model.dart';
 import 'package:gallery_task/view/screens/image_screen.dart';
 import 'package:gallery_task/view/widgets/custom_image.dart';
+import 'package:gallery_task/view/widgets/custom_text.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 
@@ -59,6 +61,15 @@ class _HomeScreenState extends State<HomeScreen> {
      final ref = Provider.of<HomeProvider>(context);
 
      return Scaffold(
+       appBar: AppBar(
+         backgroundColor: Colors.white,
+         elevation: 1,
+         centerTitle: true,
+         title: CustomText(
+           text: "Home",
+           color: MyColors.primary,
+         ),
+       ),
       body: servicesLoader || ref.imagesModel == null ?
           const Center(child: CircularProgressIndicator()) :
           SafeArea(
